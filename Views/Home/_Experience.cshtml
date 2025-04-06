@@ -1,0 +1,14 @@
+﻿@model List<SiceloNtuliOnlineCV.Models.Experience>
+
+@foreach (var exp in Model)
+{
+    <div class="experience-item">
+        <h3>@exp.Company</h3>
+        <h4>@exp.Position</h4>
+        <p class="date">
+            @exp.StartDate.ToString("MMM yyyy") -
+            @(exp.Current ? "Present" : exp.EndDate?.ToString("MMM yyyy"))
+        </p>
+        <p>@exp.Description</p>
+    </div>
+}

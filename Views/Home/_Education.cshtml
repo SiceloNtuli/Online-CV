@@ -1,0 +1,13 @@
+﻿@model List<SiceloNtuliOnlineCV.Models.Education>
+
+@foreach (var edu in Model)
+{
+    <div class="education-item">
+        <h3>@edu.Institution</h3>
+        <h4>@edu.Degree in @edu.FieldOfStudy</h4>
+        <p class="date">
+            @edu.StartDate.ToString("MMM yyyy") -
+            @(edu.EndDate?.ToString("MMM yyyy") ?? "Present")
+        </p>
+    </div>
+}

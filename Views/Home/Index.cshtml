@@ -1,0 +1,36 @@
+﻿@model SiceloNtuliOnlineCV.Models.CVModel
+
+@{
+    ViewData["Title"] = "Online CV - " + Model.PersonalInfo.FullName;
+}
+
+<div class="cv-container">
+    <section id="personal" class="cv-section">
+        <partial name="_PersonalInfo" model="Model.PersonalInfo" />
+    </section>
+
+    <section id="summary" class="cv-section">
+        <h2>Professional Summary</h2>
+        <p>@Model.ProfessionalSummary</p>
+    </section>
+
+    <section id="experience" class="cv-section">
+        <h2>Work Experience</h2>
+        <partial name="_Experience" model="Model.WorkExperience" />
+    </section>
+
+    <section id="education" class="cv-section">
+        <h2>Education</h2>
+        <partial name="_Education" model="Model.Education" />
+    </section>
+
+    <section id="skills" class="cv-section">
+        <h2>Technical Skills</h2>
+        <partial name="_Skills" model="Model.Skills" />
+    </section>
+
+    <section id="projects" class="cv-section">
+        <h2>Projects</h2>
+        <partial name="_Projects" model="Model.Projects" />
+    </section>
+</div>

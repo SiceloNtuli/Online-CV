@@ -1,0 +1,21 @@
+﻿@model List<SiceloNtuliOnlineCV.Models.Skill>
+
+<div class="skills-container">
+    @foreach (var category in Model.Select(s => s.Category).Distinct())
+    {
+        <div class="skill-category">
+            <h3>@category</h3>
+            <ul class="skill-list">
+                @foreach (var skill in Model.Where(s => s.Category == category))
+                {
+                    <li>
+                        <span class="skill-name">@skill.Name</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: @(skill.Proficiency * 20)%"></div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

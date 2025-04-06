@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "SiceloNtuliOnlineCV/1.0.0": {
+        "runtime": {
+          "SiceloNtuliOnlineCV.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SiceloNtuliOnlineCV/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

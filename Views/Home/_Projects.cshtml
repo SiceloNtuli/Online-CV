@@ -1,0 +1,21 @@
+﻿@model List<SiceloNtuliOnlineCV.Models.Project>
+
+<div class="projects-container">
+    @foreach (var project in Model)
+    {
+        <div class="project-item">
+            <h3>@project.Name</h3>
+            <p>@project.Description</p>
+            <div class="project-technologies">
+                <strong>Technologies:</strong>
+                @string.Join(", ", project.Technologies)
+            </div>
+            @if (!string.IsNullOrEmpty(project.Link))
+            {
+                <a href="@project.Link" target="_blank" class="project-link">
+                    <i class="fas fa-external-link-alt"></i> View Project
+                </a>
+            }
+        </div>
+    }
+</div>
