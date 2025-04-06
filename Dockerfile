@@ -29,23 +29,22 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "SiceloNtuliOnlineCV.dll"]
 
-# Use the official .NET SDK image to build the app
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# Use the official .NET 9.0 SDK image to build the app
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy project files and restore dependencies
-COPY *.csproj ./
+COPY *.csproj .
 RUN dotnet restore
 
 # Copy everything else and build
-COPY . ./
+COPY . .
 RUN dotnet publish -c Release -o /app/publish
 
-# Use the ASP.NET runtime image for the final stage
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# Use the ASP.NET 9.0 runtime image for the final stage
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/publish ./
+COPY --from=build /app/publish .
 
-# Expose port 80 and start the app
-EXPOSE 80
+# Start the application
 ENTRYPOINT ["dotnet", "OnlineCV.dll"]
